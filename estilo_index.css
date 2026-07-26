@@ -1,0 +1,216 @@
+/* ================================
+   CONFIGURACIÓN GENERAL
+================================ */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Arial, sans-serif;
+}
+body{
+    background:#f4f5ff;
+    color:#1a1a4b;
+}
+
+/* ================================
+        ENCABEZADO
+================================ */
+header{
+    background:linear-gradient(135deg, #14144A, #4040ED);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+    border-radius:0 0 45px 45px;
+    box-shadow:0 10px 30px rgba(20,20,74,.35);
+}
+header h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+header p{
+    font-size:18px;
+    opacity:.9;
+}
+
+/* ================================
+        MENU PRINCIPAL
+================================ */
+.menu{
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:35px;
+}
+.categoria{
+    background:white;
+    text-decoration:none;
+    color:#14144A;
+    border-radius:35px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    transition:.35s;
+}
+.categoria:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 35px rgba(64,64,237,.35);
+}
+.categoria img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+.categoria h2{
+    padding:20px 25px 10px;
+    color:#2A2A9C;
+    font-size:25px;
+}
+.categoria p{
+    padding:0 25px 25px;
+    color:#555;
+    line-height:1.5;
+}
+
+/* ================================
+        SECCIONES
+================================ */
+section{
+    width:92%;
+    max-width:1400px;
+    margin:45px auto;
+}
+.categoria-titulo,
+.titulo{
+    background:linear-gradient(135deg, #1E1E6E, #4040ED);
+    color:white;
+    padding:18px 30px;
+    border-radius:30px;
+    margin-bottom:35px;
+    font-size:28px;
+    box-shadow:0 8px 20px rgba(20,20,74,.25);
+}
+
+/* ================================
+        TARJETAS DE CONVENTOS
+================================ */
+.iglesia,
+.card{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    background:white;
+    padding:25px;
+    margin-bottom:35px;
+    border-radius:35px;
+    box-shadow:0 10px 30px rgba(20,20,74,.15);
+    transition:.35s;
+}
+.iglesia:hover,
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 20px 40px rgba(64,64,237,.25);
+}
+
+/* ================================
+        IMÁGENES
+================================ */
+.iglesia img,
+.card img{
+    width:270px;
+    height:210px;
+    object-fit:cover;
+    border-radius:25px;
+}
+
+/* ================================
+        INFORMACIÓN
+================================ */
+.info{
+    flex:1;
+}
+.info h3{
+    color:#1E1E6E;
+    font-size:24px;
+    margin-bottom:15px;
+}
+.info p{
+    margin:12px 0;
+    line-height:1.6;
+    color:#444;
+}
+
+/* ================================
+        BOTONES
+================================ */
+.boton,
+button{
+    display:inline-block;
+    margin-top:15px;
+    background:#4040ED;
+    color:white;
+    text-decoration:none;
+    border:none;
+    padding:12px 28px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:.3s;
+}
+.boton:hover,
+button:hover{
+    background:#1E1E6E;
+}
+
+/* ================================
+        MAPAS
+================================ */
+.mapa{
+    width:380px;
+    flex-shrink:0;
+}
+.mapa iframe{
+    width:100%;
+    height:230px;
+    border:0;
+    border-radius:25px;
+}
+
+/* ================================
+        BOTÓN REGRESAR
+================================ */
+.volver{
+    display:inline-block;
+    margin:25px;
+    padding:12px 25px;
+    background:#1E1E6E;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+}
+.volver:hover{
+    background:#4040ED;
+}
+
+/* ================================
+        RESPONSIVE CELULAR
+================================ */
+@media(max-width:950px){
+    header h1{
+        font-size:32px;
+    }
+    .iglesia,
+    .card{
+        flex-direction:column;
+    }
+    .iglesia img,
+    .card img{
+        width:100%;
+        height:260px;
+    }
+    .mapa{
+        width:100%;
+    }
+    .mapa iframe{
+        height:250px;
+    }
+}
