@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conventos Franciscanos</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="Estilos_convento/estilos.css">
 </head>
 <body>
 
@@ -13,13 +13,33 @@
     <p>Recorrido por los conventos franciscanos de México</p>
 </header>
 
-<a href="menu_convento.html" class="volver">← Regresar al inicio</a>
+<div style="width: 92%; max-width: 1400px; margin: 25px auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+    <a href="menu_convento.html" class="volver" style="margin: 0;">← Regresar al inicio</a>
+
+     <!-- Botón Deslizable -->
+        <div class="switch-filtros" id="switchEstatus">
+            <div class="switch-slider" id="sliderBg" style="border-color: #d8a928; background-color: #fff9e9; color: #d8a928;"></div>
+            <button type="button" class="switch-btn activo" onclick="seleccionarEstatus('todos', 0, '#d8a928', '#fff9e9', '#8d6910')">Todos</button>
+            <button type="button" class="switch-btn" onclick="seleccionarEstatus('visitado', 1, '#28a745', '#e8f8ec', '#0b4a1b')">Visitados</button>
+            <button type="button" class="switch-btn" onclick="seleccionarEstatus('por-visitar', 2, '#dc3545', '#fde8e8', '#520d0d')">Por visitar</button>
+        </div>
+
+        <!-- Selector de Filtro por Estado -->
+        <div class="filtro-container">
+            <select id="filtroEstado" onchange="aplicarFiltros()" style="padding: 12px 20px; border-radius: 25px; border: 1px solid #dcdce6; background: white; color: #3b3020; font-size: 15px; outline: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-family: 'Segoe UI', Arial, sans-serif;">
+                <option value="todos">🌍 Todos los estados</option>
+                <option value="puebla">Puebla</option>
+                <option value="cdmx">Ciudad de México</option>
+                <option value="mexico">Estado de México</option>
+                <option value="yucatan">Yucatán</option>
+            </select>
+        </div>
+</div>
 
 <section>
-    <h2 class="titulo">Conventos Franciscanos</h2>
 
-    <div class="iglesia">
-        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Andres_Calpan.jpeg">
+    <div class="iglesia" data-estado="puebla">
+        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Andres_Calpan.jpeg" alt="Ex-Convento Franciscano de San Andrés Calpan">
         <div class="info">
             <h3>Ex-Convento Franciscano de San Andrés Calpan</h3>
             <p>📍 <b>Dirección:</b><br>16 de Septiembre s/n, Segunda Secc, 74180 San Andrés Calpan, Puebla.</p>
@@ -32,8 +52,8 @@
         </div>
     </div>
 
-    <div class="iglesia">
-        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/Convento_de_Tecamachalco.jpg">
+    <div class="iglesia" data-estado="puebla">
+        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/Convento_de_Tecamachalco.jpg" alt="Ex-Convento Franciscano de la Virgen de la Asunción">
         <div class="info">
             <h3>Ex-Convento Franciscano de la Virgen de la Asunción</h3>
             <p>📍 <b>Dirección:</b><br>C. 7 Nte. S/N, El Convento, Centro, 75487 Tecamachalco, Puebla.</p>
@@ -42,12 +62,12 @@
             <a href="#" class="boton">Ver más</a>
         </div>
         <div class="mapa">
-            <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.4460982124256!2d-97.73496510321041!3d18.886401400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c563a7dca0864f%3A0xce94e2882be43626!2sEx%20Convento%20Franciscano%20de%20la%20Virgen%20de%20la%20Asunci%C3%B3n%20Tecamachalco%2C%20Pue.%20Siglo%20XVI!5e1!3m2!1ses-419!2smx!4v1782792850837!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3401.4460982124256!2d-97.73496510321041!3d18.886401400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c563a7dca0864f%3A0xce94e2882be43626!2sEx%20Convento%20Franciscano%20de%20la%20Virgen%20de%20la%20Asunci%C3%B3n%20Tecamachalco%2C%20Pue.%20Siglo%20XVI!5e1!3m2!1ses-419!2smx!4v1782792850837!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
     </div>
 
-    <div class="iglesia">
-        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Francisco_asis.jpeg">
+    <div class="iglesia" data-estado="puebla">
+        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Francisco_asis.jpeg" alt="Parroquia y Ex-Convento Franciscano de San Francisco de Asís">
         <div class="info">
             <h3>Parroquia y Ex-Convento Franciscano de San Francisco de Asís</h3>
             <p>📍 <b>Dirección:</b><br>Plaza Santa Cecilia, 73310 Zacatlán, Puebla.</p>
@@ -60,8 +80,8 @@
         </div>
     </div>
 
-    <div class="iglesia">
-        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Gabriel_Arcangel_Cholula.jpg">
+    <div class="iglesia" data-estado="puebla">
+        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Gabriel_Arcangel_Cholula.jpg" alt="Convento de San Gabriel Arcángel">
         <div class="info">
             <h3>Convento de San Gabriel Arcángel</h3>
             <p>📍 <b>Dirección:</b><br>Calle 2 Nte. 4, Centro, 72760 San Pedro Cholula, Pue.</p>
@@ -74,8 +94,8 @@
         </div>
     </div>
 
-    <div class="iglesia">
-        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Bernardino.jpeg">
+    <div class="iglesia" data-estado="cdmx">
+        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Bernardino.jpeg" alt="Catedral de San Bernardino de Siena">
         <div class="info">
             <h3>Catedral de San Bernardino de Siena</h3>
             <p>📍 <b>Dirección:</b><br>Av. Nuevo León 22B, Santa Crucita, Xochimilco, Ciudad de México.</p>
@@ -88,10 +108,10 @@
         </div>
     </div>
 
-    <div class="iglesia">
-        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/Catedral_texcoco.jpeg">
+    <div class="iglesia" data-estado="mexico">
+        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/Catedral_texcoco.jpeg" alt="Catedral de la Ciudad de Texcoco">
         <div class="info">
-            <h3>Catedral de la Ciudad de Texcoco </h3>
+            <h3>Catedral de la Ciudad de Texcoco</h3>
             <p>📍 <b>Dirección:</b>Fray Pedro de Gante 2, Centro, 56100 Texcoco de Mora, Méx.<br></p>
             <p>📅 <b>Días abierto:</b><br>Sin información</p>
             <p>🕒 <b>Horario:</b><br>Sin información</p>
@@ -102,8 +122,8 @@
         </div>
     </div>
 
-    <div class="iglesia">
-        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Luis_Obispo.jpeg">
+    <div class="iglesia" data-estado="mexico">
+        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Luis_Obispo.jpeg" alt="Parroquia de San Luis Obispo de Tlalmanalco">
         <div class="info">
             <h3>Parroquia de San Luis Obispo de Tlalmanalco</h3>
             <p>📍 <b>Dirección:</b><br>Plaza Juárez, 56700 Tlalmanalco, Estado de México.</p>
@@ -116,8 +136,8 @@
         </div>
     </div>
 
-    <div class="iglesia">
-        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Antonio_Padua.jpg">
+    <div class="iglesia" data-estado="yucatan">
+        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Antonio_Padua.jpg" alt="Convento de San Antonio de Padua">
         <div class="info">
             <h3>Convento de San Antonio de Padua</h3>
             <p>📍 <b>Dirección:</b><br>Centro de Izamal, Yucatán.</p>
@@ -126,12 +146,13 @@
             <a href="#" class="boton">Ver más</a>
         </div>
         <div class="mapa">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6789.908310792849!2d-98.80585852996356!3d19.203482160430287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce22fa8988f23b%3A0xaeda4a8e5b937919!2sParroquia%20de%20San%20Luis%20Obispo%20de%20Tlalmanalco!5e1!3m2!1ses-419!2smx!4v1782794600740!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            <!-- Mapa corregido para apuntar a Izamal, Yucatán -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3357.730462621605!2d-89.02062228966959!3d20.93248498061229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f56a482c3df55a7%3A0x18f0fbe2a99b99e8!2sConvento%20de%20San%20Antonio%20de%20Padua!5e1!3m2!1ses-419!2smx!4v1790652642041!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
         </div>
     </div>
 
-    <div class="iglesia">
-        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/Conkal.jpeg">
+    <div class="iglesia" data-estado="yucatan">
+        <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/Conkal.jpeg" alt="Iglesia San Francisco de Asís">
         <div class="info">
             <h3>Iglesia San Francisco de Asís</h3>
             <p>📍 <b>Dirección:</b><br>C. 21 101, Conkal, 97345 Conkal, Yuc.</p>
@@ -144,6 +165,69 @@
         </div>
     </div>
 </section>
+
+<!-- Script para manejar el filtrado por estado -->
+<script>
+    let estatusSeleccionado = 'todos';
+
+    // Detección automática al cargar la página si ya fue visitado o no según el enlace de "Ver más"
+    document.addEventListener("DOMContentLoaded", function() {
+        let iglesias = document.querySelectorAll('.iglesia');
+        iglesias.forEach(iglesia => {
+            let botonVerMas = iglesia.querySelector('.info .boton');
+            if (botonVerMas) {
+                let href = botonVerMas.getAttribute('href');
+                if (href && href !== '#' && href !== '') {
+                    iglesia.setAttribute('data-estatus', 'visitado');
+                } else {
+                    iglesia.setAttribute('data-estatus', 'por-visitar');
+                }
+            }
+        });
+    });
+
+    function seleccionarEstatus(estatus, indice, colorBorde, colorFondo, colorTexto) {
+        estatusSeleccionado = estatus;
+
+        let slider = document.getElementById('sliderBg');
+        slider.style.transform = `translateX(${indice * 100}%)`;
+        slider.style.borderColor = colorBorde;
+        slider.style.backgroundColor = colorFondo;
+        slider.style.color = colorBorde;
+
+        let botones = document.querySelectorAll('.switch-btn');
+        botones.forEach((btn, idx) => {
+            if (idx === indice) {
+                btn.classList.add('activo');
+                btn.style.color = colorTexto;
+            } else {
+                btn.classList.remove('activo');
+                btn.style.color = '#6b6255';
+            }
+        });
+
+        aplicarFiltros();
+    }
+
+    function aplicarFiltros() {
+        let estadoSeleccionado = document.getElementById('filtroEstado').value;
+        let iglesias = document.querySelectorAll('.iglesia');
+
+        iglesias.forEach(iglesia => {
+            let estadoIglesia = iglesia.getAttribute('data-estado');
+            let estatusIglesia = iglesia.getAttribute('data-estatus');
+
+            let cumpleEstado = (estadoSeleccionado === 'todos' || estadoIglesia === estadoSeleccionado);
+            let cumpleEstatus = (estatusSeleccionado === 'todos' || estatusIglesia === estatusSeleccionado);
+
+            if (cumpleEstado && cumpleEstatus) {
+                iglesia.style.display = "flex"; 
+            } else {
+                iglesia.style.display = "none";
+            }
+        });
+    }
+    </script>
 
 </body>
 </html>
