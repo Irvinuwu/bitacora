@@ -5,21 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conventos Agustinos</title>
     <link rel="stylesheet" href="estilos.css">
+    
 </head>
 <body>
     <header>
-        <h1>命 Conventos Agustinos</h1>
+        <h1>⛪ Conventos Agustinos</h1>
         <p>Recorrido por los conventos pertenecientes a la orden agustina</p>
     </header>
 
-    <a href="menu_convento.html" class="volver">← Regresar al inicio</a>
+    <!-- Contenedor de Filtros -->
+    <div class="contenedor-filtros">
+        <a href="menu_convento.html" class="volver" style="margin: 0;">← Regresar al inicio</a>
+        
+        <!-- Botón Deslizable -->
+        <div class="switch-filtros" id="switchEstatus">
+            <div class="switch-slider" id="sliderBg" style="border-color: #d8a928; background-color: #fff9e9; color: #d8a928;"></div>
+            <button type="button" class="switch-btn activo" onclick="seleccionarEstatus('todos', 0, '#d8a928', '#fff9e9', '#8d6910')">Todos</button>
+            <button type="button" class="switch-btn" onclick="seleccionarEstatus('visitado', 1, '#28a745', '#e8f8ec', '#0b4a1b')">Visitados</button>
+            <button type="button" class="switch-btn" onclick="seleccionarEstatus('por-visitar', 2, '#dc3545', '#fde8e8', '#520d0d')">Por visitar</button>
+        </div>
+
+        <!-- Selector de Filtro por Estado -->
+        <div class="filtro-container">
+            <select id="filtroEstado" onchange="aplicarFiltros()" style="padding: 12px 20px; border-radius: 25px; border: 1px solid #dcdce6; background: white; color: #3b3020; font-size: 15px; outline: none; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-family: 'Segoe UI', Arial, sans-serif;">
+                <option value="todos">🌍 Todos los estados</option>
+                <option value="morelos">Morelos</option>
+                <option value="hidalgo">Hidalgo</option>
+                <option value="mexico">Estado de México</option>
+                <option value="guanajuato">Guanajuato</option>
+            </select>
+        </div>
+    </div>
 
     <section>
-        <h2 class="titulo">Conventos Agustinos</h2>
+       
 
         <!-- YECAPIXTLA -->
-        <div class="iglesia">
-            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Juan_Bautista.jpeg">
+        <div class="iglesia" data-estado="morelos">
+            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Juan_Bautista.jpeg" alt="Parroquia de San Juan Bautista de Yecapixtla">
             <div class="info">
                 <h3>Parroquia de San Juan Bautista de Yecapixtla</h3>
                 <p>📍 <b>Dirección:</b><br>Sufragio Efectivo S/N, Centro, 62820 Yecapixtla, Mor.</p>
@@ -33,8 +56,8 @@
         </div>
 
         <!-- ATLATLAHUCAN -->
-        <div class="iglesia">
-            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Mateo_Apostol.jpg"">
+        <div class="iglesia" data-estado="morelos">
+            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Mateo_Apostol.jpg" alt="Templo de San Mateo Apóstol de Atlatlahucan">
             <div class="info">
                 <h3>Templo de San Mateo Apóstol de Atlatlahucan</h3>
                 <p>📍 <b>Dirección:</b><br>Del Convento, San Mateo, 62840 Atlatlahucan, Mor.</p>
@@ -47,9 +70,9 @@
             </div>
         </div>
         
-        <!-- Totoloapan -->
-         <div class="iglesia">
-            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Guillermo_totoloapan.jpeg">
+        <!-- TOTOLOAPAN -->
+        <div class="iglesia" data-estado="morelos">
+            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_Guillermo_totoloapan.jpeg" alt="Ex Convento de San Guillermo">
             <div class="info">
                 <h3>Ex Convento de San Guillermo</h3>
                 <p>📍 <b>Dirección:</b><br>Ignacio Aldama, Purisima Concepción, 62830 Totolapan, Mor.</p>
@@ -63,8 +86,8 @@
         </div>
 
         <!-- IXMIQUILPAN -->
-        <div class="iglesia">
-            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/ixmiquilpan.jpeg">
+        <div class="iglesia" data-estado="hidalgo">
+            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/ixmiquilpan.jpeg" alt="Templo y Exconvento de San Miguel Arcángel">
             <div class="info">
                 <h3>Templo y Exconvento de San Miguel Arcángel</h3>
                 <p>📍 <b>Dirección:</b><br>Nicolás Romero 34, Centro, 42300 Ixmiquilpan, Hgo.</p>
@@ -73,13 +96,13 @@
                 <a href="#" class="boton">Ver más</a>
             </div>
             <div class="mapa">
-                <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3367.710128162252!2d-99.2214562247582!3d20.48267278103361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3e06e92e6f2dd%3A0x27ef1ced86bcb7f8!2sTemplo%20y%20Exconvento%20de%20San%20Miguel%20Arc%C3%A1ngel!5e1!3m2!1ses-419!2smx!4v1782796096803!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3367.710128162252!2d-99.2214562247582!3d20.48267278103361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3e06e92e6f2dd%3A0x27ef1ced86bcb7f8!2sTemplo%20y%20Exconvento%20de%20San%20Miguel%20Arc%C3%A1ngel!5e1!3m2!1ses-419!2smx!4v1782796096803!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         </div>
 
         <!-- ACTOPAN -->
-        <div class="iglesia">
-            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_nicolas_tolentino.jpg">
+        <div class="iglesia" data-estado="hidalgo">
+            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/San_nicolas_tolentino.jpg" alt="Parroquia de San Nicolás de Tolentino">
             <div class="info">
                 <h3>Parroquia de San Nicolás de Tolentino</h3>
                 <p>📍 <b>Dirección:</b><br>Lerdo de Tejada, Centro Sur, 42500 Actopan, Hgo.</p>
@@ -88,13 +111,13 @@
                 <a href="#" class="boton">Ver más</a>
             </div>
             <div class="mapa">
-                <iframe   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1417.9164657728354!2d-98.94387186895352!3d20.26832628363414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d171eb17911d11%3A0xeee0af05c847bc07!2sParroquia%20de%20San%20Nicol%C3%A1s%20de%20Tolentino!5e1!3m2!1ses-419!2smx!4v1782796377932!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1417.9164657728354!2d-98.94387186895352!3d20.26832628363414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d171eb17911d11%3A0xeee0af05c847bc07!2sParroquia%20de%20San%20Nicol%C3%A1s%20de%20Tolentino!5e1!3m2!1ses-419!2smx!4v1782796377932!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         </div>
 
         <!-- EPAZOYUCAN -->
-        <div class="iglesia">
-            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/epazoyucan.jpg">
+        <div class="iglesia" data-estado="hidalgo">
+            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/epazoyucan.jpg" alt="Ex-Convento de San Andrés Apóstol">
             <div class="info">
                 <h3>Ex-Convento de San Andrés Apóstol</h3>
                 <p>📍 <b>Dirección:</b><br>Centro, 43580 Epazoyucan, Hgo.</p>
@@ -107,9 +130,9 @@
             </div>
         </div>
 
-         <!-- San Agustin -->
-        <div class="iglesia">
-            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/PARROQUIA_ACOLMAN.jpeg">
+        <!-- ACOLMAN -->
+        <div class="iglesia" data-estado="mexico">
+            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/PARROQUIA_ACOLMAN.jpeg" alt="Parroquia y Exconvento San Agustín de Hipona en Acolman">
             <div class="info">
                 <h3>Parroquia y Exconvento San Agustín de Hipona en Acolman</h3>
                 <p>📍 <b>Dirección:</b><br>Calzada s/n, Calz. de Los Agustinos, Centro, 55870 Acolman de Nezahualcóyotl, Méx.</p>
@@ -122,15 +145,15 @@
             </div>
         </div>
 
-            <!-- San Salvador -->
-        <div class="iglesia">
-            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/con_mali.jpg">
+        <!-- MALINALCO (Este ya lleva a otra página, se detectará automáticamente como visitado) -->
+        <div class="iglesia" data-estado="mexico">
+            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/con_mali.jpg" alt="Ex Convento del Divino Salvador">
             <div class="info">
                 <h3>Ex Convento del Divino Salvador</h3>
                 <p>📍 <b>Dirección:</b><br>Esq. De Progreso e Hidalgo, Centro, 52420 Malinalco, Méx.</p>
                 <p>📅 <b>Días abierto:</b><br>Sabado a Jueves</p>
                 <p>🕒 <b>Horario:</b><br>9:00 AM - 1:00 PM y 4:00 PM - 6:00 PM </p>
-                 <p>💲<b>Precio:</b> Cooperación voluntaria</p>
+                <p>💲 <b>Precio:</b> Cooperación voluntaria</p>
                 <a href="convento_mali.html" class="boton">Ver más</a>
             </div>
             <div class="mapa">
@@ -138,9 +161,9 @@
             </div>
         </div>
 
-        <!-- SAN AGUSTIN YURIRIA -->
-        <div class="iglesia">
-            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/museo_exconvento.jpg">
+        <!-- YURIRIA -->
+        <div class="iglesia" data-estado="guanajuato">
+            <img src="https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_conventos/museo_exconvento.jpg" alt="Museo Exconvento de San Agustín">
             <div class="info">
                 <h3>Museo Exconvento de San Agustín</h3>
                 <p>📍 <b>Dirección:</b><br>Explanada, Benito Juárez s/n, Centro, 38940 Yuriria, Gto.</p>
@@ -154,5 +177,69 @@
             </div>
         </div>
     </section>
+
+    <!-- Script de Automatización de Estatus y Filtros -->
+    <script>
+    let estatusSeleccionado = 'todos';
+
+    // Se ejecuta al cargar la página para detectar automáticamente si ya fue visitado o no
+    document.addEventListener("DOMContentLoaded", function() {
+        let iglesias = document.querySelectorAll('.iglesia');
+        iglesias.forEach(iglesia => {
+            let botonVerMas = iglesia.querySelector('.info .boton');
+            if (botonVerMas) {
+                let href = botonVerMas.getAttribute('href');
+                // Si el enlace apunta a otra página (no es '#' ni está vacío), se marca como visitado
+                if (href && href !== '#' && href !== '') {
+                    iglesia.setAttribute('data-estatus', 'visitado');
+                } else {
+                    iglesia.setAttribute('data-estatus', 'por-visitar');
+                }
+            }
+        });
+    });
+
+    function seleccionarEstatus(estatus, indice, colorBorde, colorFondo, colorTexto) {
+        estatusSeleccionado = estatus;
+
+        let slider = document.getElementById('sliderBg');
+        slider.style.transform = `translateX(${indice * 100}%)`;
+        slider.style.borderColor = colorBorde;
+        slider.style.backgroundColor = colorFondo;
+        slider.style.color = colorBorde;
+
+        let botones = document.querySelectorAll('.switch-btn');
+        botones.forEach((btn, idx) => {
+            if (idx === indice) {
+                btn.classList.add('activo');
+                btn.style.color = colorTexto;
+            } else {
+                btn.classList.remove('activo');
+                btn.style.color = '#6b6255';
+            }
+        });
+
+        aplicarFiltros();
+    }
+
+    function aplicarFiltros() {
+        let estadoSeleccionado = document.getElementById('filtroEstado').value;
+        let iglesias = document.querySelectorAll('.iglesia');
+
+        iglesias.forEach(iglesia => {
+            let estadoIglesia = iglesia.getAttribute('data-estado');
+            let estatusIglesia = iglesia.getAttribute('data-estatus');
+
+            let cumpleEstado = (estadoSeleccionado === 'todos' || estadoIglesia === estadoSeleccionado);
+            let cumpleEstatus = (estatusSeleccionado === 'todos' || estatusIglesia === estatusSeleccionado);
+
+            if (cumpleEstado && cumpleEstatus) {
+                iglesia.style.display = "flex"; 
+            } else {
+                iglesia.style.display = "none";
+            }
+        });
+    }
+    </script>
 </body>
 </html>
