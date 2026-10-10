@@ -1,216 +1,277 @@
 /* ================================
-   CONFIGURACIÓN GENERAL
+    CONFIGURACIÓN GENERAL
 ================================ */
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 body{
-    background:#f4f5ff;
-    color:#1a1a4b;
+    background: #fffdf8;
+    color: #000000;
+    overflow-x: hidden;
 }
 
 /* ================================
         ENCABEZADO
 ================================ */
-header{
-    background:linear-gradient(135deg, #14144A, #4040ED);
-    color:white;
-    text-align:center;
-    padding:45px 20px;
-    border-radius:0 0 45px 45px;
-    box-shadow:0 10px 30px rgba(20,20,74,.35);
-}
-header h1{
-    font-size:45px;
-    margin-bottom:15px;
-}
-header p{
-    font-size:18px;
-    opacity:.9;
-}
-
-/* ================================
-        MENU PRINCIPAL
-================================ */
-.menu{
-    width:90%;
-    max-width:1200px;
-    margin:50px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:35px;
-}
-.categoria{
-    background:white;
-    text-decoration:none;
-    color:#14144A;
-    border-radius:35px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-    transition:.35s;
-}
-.categoria:hover{
-    transform:translateY(-10px);
-    box-shadow:0 18px 35px rgba(64,64,237,.35);
-}
-.categoria img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-}
-.categoria h2{
-    padding:20px 25px 10px;
-    color:#2A2A9C;
-    font-size:25px;
-}
-.categoria p{
-    padding:0 25px 25px;
-    color:#555;
-    line-height:1.5;
+header {
+    position: relative;
+    width: 100%;
+    background: 
+        linear-gradient(
+            90deg,
+            #0000002d 0%,
+            #0705014b 3%,
+            rgba(0, 0, 0, 0.85) 6%,
+            rgba(59,48,32,.3) 70%,
+            transparent 100%
+        ),
+        url(https://izwdelummdjqtykibhxr.supabase.co/storage/v1/object/public/imagenes_museos/tem1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 50px 5%;
+    border-radius: 0 0 45px 45px;
+    box-shadow: 0 10px 30px rgba(5, 5, 20, .4);
+    text-align: left;
 }
 
-/* ================================
-        SECCIONES
-================================ */
-section{
-    width:92%;
-    max-width:1400px;
-    margin:45px auto;
-}
-.categoria-titulo,
-.titulo{
-    background:linear-gradient(135deg, #1E1E6E, #4040ED);
-    color:white;
-    padding:18px 30px;
-    border-radius:30px;
-    margin-bottom:35px;
-    font-size:28px;
-    box-shadow:0 8px 20px rgba(20,20,74,.25);
+header h1 {
+    font-size: 45px;
+    margin-bottom: 10px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* ================================
-        TARJETAS DE CONVENTOS
-================================ */
-.iglesia,
-.card{
-    display:flex;
-    align-items:center;
-    gap:30px;
-    background:white;
-    padding:25px;
-    margin-bottom:35px;
-    border-radius:35px;
-    box-shadow:0 10px 30px rgba(20,20,74,.15);
-    transition:.35s;
-}
-.iglesia:hover,
-.card:hover{
-    transform:translateY(-7px);
-    box-shadow:0 20px 40px rgba(64,64,237,.25);
-}
-
-/* ================================
-        IMÁGENES
-================================ */
-.iglesia img,
-.card img{
-    width:270px;
-    height:210px;
-    object-fit:cover;
-    border-radius:25px;
-}
-
-/* ================================
-        INFORMACIÓN
-================================ */
-.info{
-    flex:1;
-}
-.info h3{
-    color:#1E1E6E;
-    font-size:24px;
-    margin-bottom:15px;
-}
-.info p{
-    margin:12px 0;
-    line-height:1.6;
-    color:#444;
-}
-
-/* ================================
-        BOTONES
-================================ */
-.boton,
-button{
-    display:inline-block;
-    margin-top:15px;
-    background:#4040ED;
-    color:white;
-    text-decoration:none;
-    border:none;
-    padding:12px 28px;
-    border-radius:30px;
-    cursor:pointer;
-    transition:.3s;
-}
-.boton:hover,
-button:hover{
-    background:#1E1E6E;
-}
-
-/* ================================
-        MAPAS
-================================ */
-.mapa{
-    width:380px;
-    flex-shrink:0;
-}
-.mapa iframe{
-    width:100%;
-    height:230px;
-    border:0;
-    border-radius:25px;
+header p {
+    font-size: 18px;
+    opacity: .9;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* ================================
         BOTÓN REGRESAR
 ================================ */
 .volver{
-    display:inline-block;
-    margin:25px;
-    padding:12px 25px;
-    background:#1E1E6E;
-    color:white;
-    text-decoration:none;
-    border-radius:25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 34px;
+    margin: 30px 5% 0;
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #020202;
+    border-radius: 999px;
+    background: rgba(216, 213, 203, 0.35);
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.18),
+        inset 0 1px 1px rgba(255,255,255,.45),
+        inset 0 -2px 8px rgba(0,0,0,.12);
+    position: relative;
+    overflow: hidden;
+    transition: .35s ease;
 }
+
+.volver::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: .8s;
+}
+
+.volver:hover::before{
+    left: 150%;
+}
+
 .volver:hover{
-    background:#4040ED;
+    transform: translateY(-3px) scale(1.03);
+    background: rgba(255,255,255,.18);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.25),
+        inset 0 1px 2px rgba(255,255,255,.6);
+}
+
+.volver:active{
+    transform: scale(.96);
+}
+
+/* ================================
+        MENU PRINCIPAL
+================================ */
+.menu{
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+}
+
+.categoria{
+    background: #fffdf8;
+    text-decoration: none;
+    color: #3b3020;
+    border-radius: 35px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+    transition: .35s;
+}
+
+.categoria:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.393);
+}
+
+.categoria img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.categoria h2{
+    padding: 20px 25px 10px;
+    color: #000000;
+    font-size: 25px;
+}
+
+.categoria p{
+    padding: 0 25px 25px;
+    color: #665f55;
+    line-height: 1.5;
+}
+
+/* ================================
+        SECCIÓN Y TARJETAS DE MUSEOS (NUEVO)
+================================ */
+section {
+    width: 92%;
+    max-width: 1400px;
+    margin: 45px auto;
+}
+
+.iglesia,
+.card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: #fffdf8;
+    padding: 25px;
+    margin-bottom: 35px;
+    border-radius: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.12);
+    transition: .35s;
+}
+
+.iglesia:hover,
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Imágenes de las tarjetas */
+.iglesia img,
+.card img {
+    width: 270px;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 25px;
+    flex-shrink: 0;
+}
+
+/* Información interna de la tarjeta */
+.info {
+    flex: 1;
+}
+
+.info h3 {
+    color: #000000;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.info p {
+    margin: 10px 0;
+    line-height: 1.6;
+    color: #55504a;
+    font-size: 15px;
+}
+
+/* Botón "Ver más" */
+.boton,
+button {
+    display: inline-block;
+    margin-top: 15px;
+    background: #3b3020;
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s;
+    font-weight: 600;
+}
+
+.boton:hover,
+button:hover {
+    background: #000000;
+    transform: translateY(-2px);
+}
+
+/* Contenedor del Mapa */
+.mapa {
+    width: 380px;
+    flex-shrink: 0;
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 230px;
+    border: 0;
+    border-radius: 25px;
 }
 
 /* ================================
         RESPONSIVE CELULAR
 ================================ */
-@media(max-width:950px){
+@media(max-width: 950px){
     header h1{
-        font-size:32px;
+        font-size: 32px;
     }
     .iglesia,
-    .card{
-        flex-direction:column;
+    .card {
+        flex-direction: column;
+        align-items: stretch;
     }
     .iglesia img,
-    .card img{
-        width:100%;
-        height:260px;
+    .card img {
+        width: 100%;
+        height: 260px;
     }
-    .mapa{
-        width:100%;
+    .mapa {
+        width: 100%;
     }
-    .mapa iframe{
-        height:250px;
+    .mapa iframe {
+        height: 250px;
     }
 }
